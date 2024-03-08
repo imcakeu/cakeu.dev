@@ -2,24 +2,11 @@
 const http = require("http");
 const fs = require("fs");
 
-function sendImage(imagePath, contentType, res) {
-    fs.readFile(imagePath, (err, data) => {
-        if (err) {
-            console.error(err);
-            res.writeHead(500, { "Content-Type": "text/plain" });
-            res.end("Internal Server Error");
-        } else {
-            res.writeHead(200, { "Content-Type": contentType });
-            res.end(data);
-        }
-    });
-}
-
 const host = 'localhost';
 const port = 8080;
 const server = http.createServer();
 server.on("request", (req, res) => {
-     if (req.url.startsWith('/image/')) {
+     if (req.url.startsWith('/media')) {
           try {
                res.end(fs.readFileSync('.'+req.url));
           } 
@@ -27,12 +14,12 @@ server.on("request", (req, res) => {
               errorHandler(err);
           }
      }
-     else if(req.url.startsWith("/imageviewer/")){
-          const image = req.url.slice(18, req.url.length-4);
+     else if(req.url.startsWith("/viewer_")){
+          const image = req.url.slice(8, req.url.length);
           res.end(pageViewer(image));
      }
      else if(req.url == "/favicon.ico"){
-          res.end(fs.readFileSync("./image/favicon.ico"));
+          res.end(fs.readFileSync("./media/icons/favicon.ico"));
      }
      else if(req.url == "/style") {
           res.end(fs.readFileSync("./style.css", "utf-8"));
@@ -53,8 +40,7 @@ server.listen(port, host, () => {
  });
 
 function pageGallery(){
-     let files = fs.readdirSync('./image');
-     let sFiles = files.filter(f => f.endsWith('_small.jpg'));
+     let files = fs.readdirSync("./media/photo/thumbnail");
 
      let html = '<!DOCTYPE html><html lang="fr">';
      html += '<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">'
@@ -63,10 +49,12 @@ function pageGallery(){
      html += '<body><br><h1>photo gallery</h1><br><br><br>';
      html += '<div id="photoGallery">';
 
-     for (let f of sFiles) {
-          let img = f.slice(0, f.length-10);
-          let href = "/imageviewer/" + img + ".jpg";
-          html += '<a href="' + href + '"><img src="/image/' + f + '"></a> ';
+     for (let f of files) {
+          if(f != ".DS_Store"){
+               let img = f.slice(0, 3);
+               let href = "/viewer_" + img;
+               html += '<a href="' + href + '"><img src="/media/photo/thumbnail/' + f + '"></a> ';
+          }
      }
 
      html += '</div><br><br><br>';
@@ -77,9 +65,10 @@ function pageGallery(){
 }
 
 function pageViewer(page){
-     const imageCount = 37;
+     const imageCount = 27;
+     const image = parseInt(page); 
 
-     if(page < 1 || page > imageCount)
+     if(image < 1 || image > imageCount)
           return page404("image not found");
 
      let html = "<!DOCTYPE html><html lang='fr'>";
@@ -88,16 +77,25 @@ function pageViewer(page){
      html += "<title>cakeu's photos</title></head>";
      html += "<body><br><h1>photo viewer</h1><br>";
      html += "<div class='photoViewer'>";
-     html += "<a href='/image/image" + page + ".jpg' id='largeImage'><img src='/image/image" + page + ".jpg' id='largeImage'></a><br><br>";
-     if(page >= 1) 
-          html += "<a href='/imageviewer/image" + (parseInt(page)-1) + ".jpg' id='navPhotoLeft'> <img src='/image/image" + (parseInt(page)-1) + "_small.jpg'></a>";
-     if(page < imageCount)
-          html += "<a href='/imageviewer/image" + (parseInt(page)+1) + ".jpg' id='navPhotoRight'> <img src='/image/image" + (parseInt(page)+1) + "_small.jpg'></a>";
+     html += "<a href='/media/photo/original/" + page.toString().padStart(3, '0') + ".jpg' id='largeImage'><img src='/media/photo/compressed/" + page.toString().padStart(3, '0') + ".jpg' id='largeImage'></a><br><br>";
+     if(image > 1) 
+          html += "<a href='/viewer_" + parseImage(image, "previous") + "' id='navPhotoLeft'> <img src='/media/photo/thumbnail/" + parseImage(image, "previous") + ".jpg'></a>";
+     if(image < imageCount)
+          html += "<a href='/viewer_" + parseImage(image, "next") + "' id='navPhotoRight'> <img src='/media/photo/thumbnail/" + parseImage(image, "next") + ".jpg'></a>";
      html += "</div>";
      html += "<a href='/gallery'>return</a>";
      html += '</body></html>';
 
      return html;
+}
+
+function parseImage(page, type){
+     let integer = parseInt(page);
+
+     if(type == "previous") integer -= 1;
+     else if(type == "next") integer += 1;
+
+     return integer.toString().padStart(3, '0');
 }
 
 function page404(msg){

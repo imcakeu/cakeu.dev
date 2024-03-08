@@ -3,62 +3,82 @@ body {
      color: #293132;
      font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
      text-align: center;
-}
-
-a {
+   }
+   
+   a {
      font-weight: bold;
-}
-
-.photoGallery {
-     padding-left: 20%;
-     padding-right: 20%;
-}
-
-.photoViewer {
+   }
+   
+   .photoViewer {
      position: relative; 
      width: 1000px;
      height: auto;
      margin-left: auto;
      margin-right: auto;
-}
-
-#largeImage {
+   }
+   
+   .photo-grid {
+     display: grid;
+     grid-template-columns: repeat(auto-fill, minmax(175px, 1fr));
+     gap: 10px;
+     background-color: #a6978a; /* Set the background color of the grid */
+     padding-left: 250px; /* Add some padding for spacing */
+     padding-right: 250px;
+   }
+   
+   .photo-link {
+     display: block;
+     overflow: hidden;
+     /* border-radius: 4px; */
+     background-color: #a6978a; /* Set the background color of each photo link */
+   }
+   
+   .photo {
+     padding-bottom: 1px;
+     width: 100%;
+     height: 100% - 1px;
+     object-fit: cover;
+     /* border-radius: 12px; */
+   }
+   
+   #largeImage {
      display: inline-block; /* or display: inline-block; */
      width: 500px;
      height: auto;
      text-align: center;
-}
-
-#navPhotoLeft {
+   }
+   
+   #navPhotoLeft {
      position: absolute; 
      bottom: 0;
      left: 0; 
-}
-
-#navPhotoRight {
+   }
+   
+   #navPhotoRight {
      position: absolute; 
      bottom: 0;
      right: 0;
-}
-
-/* unvisited link */
-a:link {
-     color: white;
-}
+   }
    
-/* visited link */
-a:visited {
+   /* unvisited link */
+   a:link {
      color: white;
-}
+   }
    
-/* mouse over link */
-a:hover {
+   /* visited link */
+   a:visited {
+     color: white;
+   }
+   
+   /* mouse over link */
+   a:hover {
      color: #293132;
      background-color: white;
-}
+   }
    
-/* selected link */
-a:active {
+   /* selected link */
+   a:active {
      color: #293132;
      background-color: white;
-}
+   }
+   

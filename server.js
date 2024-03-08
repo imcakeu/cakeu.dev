@@ -47,13 +47,13 @@ function pageGallery(){
      html += '<link rel="stylesheet" href="/style">';
      html += "<title>cakeu's photos</title></head>";
      html += '<body><br><h1>photo gallery</h1><br><br><br>';
-     html += '<div id="photoGallery">';
+     html += '<div class="photo-grid">';
 
      for (let f of files) {
           if(f != ".DS_Store"){
                let img = f.slice(0, 3);
                let href = "/viewer_" + img;
-               html += '<a href="' + href + '"><img src="/media/photo/thumbnail/' + f + '"></a> ';
+               html += '<a href="' + href + '" class="photo-link"><img src="/media/photo/thumbnail/' + f + '" class="photo" width="200" height="200"></a> ';
           }
      }
 

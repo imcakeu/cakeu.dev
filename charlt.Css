@@ -1,0 +1,119 @@
+:root {
+     --bg-col: #121212;
+     --fg-col: #ffffff;
+     --accent-col: rgb(255, 167, 248);
+     --accent-col-2: rgb(255, 93, 241);
+   }
+   
+   html {
+     color-scheme: dark;
+   
+     font-family: "Rouna", sans-serif;
+     font-size: 14pt;
+   
+     background-color: var(--bg-col);
+     color: var(--fg-col);
+   }
+   
+   body {
+     max-width: 36em;
+     margin: 0 auto;
+   }
+   
+   h1 {
+     margin: 0;
+     font-size: 2rem;
+   }
+   h2,
+   h3 {
+     margin: 0;
+     font-size: 1em;
+   }
+   
+   main {
+     margin: 2em 0;
+     padding: 1em 1.618em;
+     border-radius: 1em;
+     border: 2px solid var(--fg-col);
+     box-sizing: content-box;
+   }
+   main > :first-child {
+     margin-top: 0;
+   }
+   main > :last-child {
+     margin-bottom: 0;
+   }
+   
+   header {
+     display: flex;
+   
+     padding-bottom: 0.5em;
+     margin-bottom: 1em;
+     border-bottom: 1px dashed #444;
+   }
+   
+   header aside img {
+     height: 6em;
+     margin-left: 1em;
+     border-radius: 0.25em;
+   }
+   
+   footer {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+   
+     font-size: 12pt;
+     text-align: center;
+   
+     margin-top: 1em;
+     padding-top: 0.5em;
+   
+     border-top: 1px dashed #444;
+   }
+   
+   section {
+     margin: 0.5em 0;
+   }
+   
+   p {
+     margin: 0.5em 0;
+   }
+   
+   ul, ol {
+     margin: 1em;
+     padding: 0;
+   }
+   
+   a {
+     color: var(--accent-col);
+     text-decoration: none;
+     border-bottom: 1px solid var(--accent-col);
+   
+     transition: 0.2s;
+     transition-property: color border-color;
+   }
+   a:hover,
+   a:focus,
+   a:active {
+     color: var(--accent-col-2);
+     border-color: var(--accent-col-2);
+   }
+   
+   .inline-list {
+     list-style: none;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+   
+     margin: 0;
+     padding: 0;
+   }
+   .inline-list li {
+     display: inline-block;
+     margin: 0;
+     padding-inline-end: 0.5ch;
+   }
+   .inline-list li + li {
+     border-inline-start: 2px solid white;
+     padding-inline-start: 0.5ch;
+   }

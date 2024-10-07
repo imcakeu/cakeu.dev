@@ -1,4 +1,4 @@
-- this is my portfolio website, coded in raw HTML/CSS/JS
+- this is my portfolio website, coded in raw HTML/CSS
 - [click here to visit it](https://cakeu.dev/)
 - it's hosted with Netlify which is a free CDN which i recommend you to use if you also want to host your own website!
 - feel free to fork this if you want to make it your own :)

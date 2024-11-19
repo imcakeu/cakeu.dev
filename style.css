@@ -1,177 +1,223 @@
-/* Fonts */
-.madimi-one-regular {
-     font-family: "Madimi One", sans-serif;
-     font-weight: 400;
-     font-style: normal;
-   }
-   
-/* Stylesheet */
-:root{
-     --bg-col:hsl(35, 11%, 55%);
-     --fg-col:#293132;
-     --accent-col:#BFF0D4;
-}
-
-html{
-     color-scheme:light;
-
-     font-family:'Madimi One', sans-serif, 'GillSans','GillSansMT', Calibri,'TrebuchetMS',sans-serif;
-     font-size:16pt;
-
-     background-color:var(--bg-col);
-     color:var(--fg-col);
-}
-
-body{
-     max-width:42em;
-     margin:0 auto;
-}
-
-h1{
-     margin:0;
-     font-size:2.25rem;
-}
-
-h2{
-     margin:0;
-     font-size:1.5em;
-}
-
-h3 {
-     margin:0;
-     font-size: 1.1em;
-}
-
-h4 {
-     margin:0em;
-     margin-bottom: 2em;
-     font-size: 0.6em;
-}
-
-li{
-     margin-top:0.25em;
-     font-size: 1em;
-}
-
-main{
-     margin:2em 0;
-     padding:1em 1.5em;
-     border-radius:1em;
-     border:4px solid var(--fg-col);
-     box-sizing:content-box;
-}
-main>:first-child{
-     margin-top:0;
-}
-main>:last-child{
-     margin-bottom:0;
-}
-
-header{
-     display:flex;
-
-     padding-bottom:0.5em;
-     margin-bottom:1em;
-     border-bottom:2px dashed#444;
-}
-
-header aside img{
-     height: 6em;
-     margin-left: 1em;
-     border-radius: 0.25em;
-}
-
-.logo-container {
+/* ========== Variables ========== */
+:root {
+     --bg-col: hsl(35, 11%, 55%);
+     --bg-col-dark: hsl(37.5, 12.5%, 57.5%);
+     --fg-col: #293132;
+     --accent-col: #BFF0D4;
+     --scrollbar-height: 8px;
+ }
+ 
+ /* ========== Fonts ========== */
+ html {
+     color-scheme: light;
+     font-family: 'Madimi One', sans-serif, 'GillSans', 'GillSansMT', Calibri, 'TrebuchetMS', sans-serif;
+     font-size: 16pt;
+     background-color: var(--bg-col);
+     color: var(--fg-col);
+ }
+ 
+ /* ========== Layout ========== */
+ body {
+     max-width: 42em;
+     margin: 0 auto;
+ }
+ 
+ main {
+     margin: 2em 0;
+     padding: 1em 1.5em;
+     border-radius: 1em;
+     border: 4px solid var(--fg-col);
+     box-sizing: content-box;
+ }
+ 
+ main > :first-child {
+     margin-top: 0;
+ }
+ 
+ main > :last-child {
+     margin-bottom: 0;
+ }
+ 
+ header {
+     display: flex;
+     padding-bottom: 0.5em;
+     margin-bottom: 1em;
+     border-bottom: 2px dashed #444;
+ }
+ 
+ .logo-container {
      margin-left: auto;
-}
-
-.logo{
+ }
+ 
+ .logo {
      max-width: 110px;
      height: auto;
+ }
+ 
+ /* ========== Typography ========== */
+ h1 {
+     margin: 0;
+     font-size: 2.25rem;
+ }
+ 
+ h2 {
+     margin: 0 0 0.5em 0;
+     font-size: 1.5em;
+     color: var(--fg-col);
+ }
+ 
+ p {
+     margin: 0.5em 0;
+ }
+ 
+ ul,
+ ol {
+     margin: 0 1em 1em 1em;
+     padding-left: 1.25em;
+ }
+ 
+ /* ========== Links ========== */
+ a:link,
+ a:visited {
+     color: var(--accent-col);
+     text-decoration: none;
+     border-bottom: 1px solid var(--accent-col);
+     transition: color 0.15s, border-color 0.15s;
+ }
+ 
+ a:hover,
+ a:focus,
+ a:active {
+     color: var(--fg-col);
+     background-color: var(--accent-col);
+     border-color: var(--fg-col);
+ }
+ 
+ .a-icon {
+     width: 0.8em;
+     height: auto;
+ }
+ 
+ /* ========== Lists ========== */
+ .inline-list {
+     list-style: none;
+     display: flex;
+     flex-direction: row;
+     flex-wrap: wrap;
+     margin: 0;
+     padding: 0;
+ }
+ 
+ .inline-list li {
+     display: inline-block;
+     padding: 0 0.5ch;
+ }
+ 
+ /* Add dividers between items */
+ .inline-list li + li {
+     border-inline-start: 3px solid var(--fg-col);
+     padding-inline-start: 1ch;
+ }
+ 
+ /* ========== Projects Section ========== */
+ #projects {
+     text-align: left;
+     font-size: 75%;
+     padding-bottom: 1em;
+ }
+ 
+ #projects h2 {
+     color: #353d3e;
 }
-
-#intro{
-     padding-right: 15%;
-}
-
-.dashed-line {
-     border-bottom:1px dashed#444;
-}
-
-.return-link {
-     text-align: right;
-}
-
-footer{
-     display:grid;
-     grid-template-columns:1fr 1fr 1fr;
-
-     font-size:14pt;
-     text-align:center;
-
-     margin-top:1em;
-     padding-top:1em;
-
-     border-top:2px dashed#444;
-}
-
-section{
-     margin:0.5em 0;
-}
-
-p{
-     margin:0.5em 0;
-}
-
-ul, ol{
-     margin-top:0em;
-     margin-bottom: 1em;
-     margin-left: 1em;
-     margin-right: 1em;
-     padding-left:1.25em;
-}
-
-.listimg {
-     width: 1em; /* Set the width to match the size of the text */
-     height: 1em; /* Set the height to match the size of the text */
-     vertical-align: middle; /* Align the image vertically with the text */
+ 
+ #projects ul {
+     display: flex;
+     flex-direction: row;
+     flex-wrap: nowrap;
+     overflow-x: scroll;
+     white-space: nowrap;
+     padding: 0.25em;
+     margin: 0.25em;
+     list-style: none;
+     gap: 1em;
+ }
+ 
+ #projects ul li {
+     flex: 0 0 auto;
+     text-align: left;
+     background-color: var(--bg-col-dark);
+     border-radius: 10px;
+     box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+     transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
+     display: flex;
+     width: 250px;
+     min-height: 350px;
+ 
+     /* Add these */
+     overflow: hidden; /* Prevent content from spilling outside the card */
+ }
+ 
+ #projects figure {
+     margin: 0em;
  }
 
-a:link, a:visited{
-     color:var(--accent-col);
-     background-color:none;
-     text-decoration:none;
-     border-bottom:1px solid var(--accent-col);
+ /* Add padding for text/links but not for the image */
+#projects ul li figcaption {
+     padding: 0 1em; /* Add left/right padding for text and links */
+ }
+ 
+ 
+ #projects ul li h3,
+ #projects ul li p {
+     /* Ensure text wraps or is truncated appropriately */
+     overflow: hidden;
+     white-space: nowrap;
+ }
+ 
+ 
+ #projects ul li:hover {
+     transform: translateY(-5px);
+     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+ }
+ 
+ #projects ul li img {
+     max-width: 100%;
+     border-radius: 0px;
+     opacity: 0.75;
+     transition: opacity 0.2s ease-in-out;
+}
 
-     transition:0.15s;
-     transition-property: color border-color;
-}
-a:hover, a:focus, a:active{
-     color:var(--fg-col);
-     background-color:var(--accent-col);
-     border-color:var(--accent-col-2);
-}
-
-.a-icon{
-     width:0.8em;
-     height:auto;
-}
-
-.inline-list{
-     list-style:none;
-     display:flex;
-     flex-direction:row;
-     flex-wrap:wrap;
-
-     margin:0;
-     padding:0;
-}
-.inline-listli{
-     display:inline-block;
-     margin:0;
-     padding-inline-end:0.5ch;
-}
-.inline-listli+li{
-     border-inline-start:2px solid white;
-     padding-inline-start:0.5ch;
-}
+/* Ensure the opacity changes when hovering the entire card */
+#projects ul li:hover img {
+     opacity: 1;
+ }
+ 
+ #projects ul li p {
+     margin: 0;
+     font-size: 0.8em;
+ }
+ 
+ #projects ul::-webkit-scrollbar {
+     height: var(--scrollbar-height);
+ }
+ 
+ #projects ul::-webkit-scrollbar-thumb {
+     background: var(--fg-col);
+     border-radius: 10px;
+ }
+ 
+ #projects ul::-webkit-scrollbar-track {
+     background: var(--bg-col);
+ }
+ 
+ /* ========== Footer ========== */
+ footer {
+     display: grid;
+     grid-template-columns: 1fr 1fr 1fr;
+     font-size: 14pt;
+     text-align: center;
+     margin-top: 1em;
+     padding-top: 1em;
+     border-top: 2px dashed #444;
+ }
+ 

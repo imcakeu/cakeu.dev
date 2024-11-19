@@ -42,7 +42,7 @@
      display: flex;
      padding-bottom: 0.5em;
      margin-bottom: 1em;
-     border-bottom: 2px dashed #444;
+     border-bottom: 2px solid #444;
  }
  
  .logo-container {
@@ -110,7 +110,7 @@
  
  .inline-list li {
      display: inline-block;
-     padding: 0 0.5ch;
+     padding: 0 1ch;
  }
  
  /* Add dividers between items */
@@ -218,6 +218,6 @@
      text-align: center;
      margin-top: 1em;
      padding-top: 1em;
-     border-top: 2px dashed #444;
+     border-top: 2px solid #444;
  }
  

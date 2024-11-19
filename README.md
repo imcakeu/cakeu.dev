@@ -1,9 +1,7 @@
+[![banner](https://github.com/imcakeu/cakeu.dev/blob/main/media/logo.png?raw=true)](https://cakeu.dev/)
 # cakeu.dev
-![banner](https://raw.githubusercontent.com/imcakeu/cakeu.dev/refs/heads/main/media/banner.png)
-
 my raw html/css portfolio website.
 > [click here to visit it](https://cakeu.dev/)
-
 
 # info
 - this project is fully open-source. feel free to fork this and make your own portfolio website.

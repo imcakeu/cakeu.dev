@@ -150,8 +150,9 @@
      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
      transition: transform 0.1s ease-in-out, box-shadow 0.1s ease-in-out;
      display: flex;
-     width: 250px;
+     width: 250px;     
      min-height: 350px;
+
  
      /* Add these */
      overflow: hidden; /* Prevent content from spilling outside the card */
@@ -197,17 +198,25 @@
      font-size: 0.8em;
  }
  
- #projects ul::-webkit-scrollbar {
-     height: var(--scrollbar-height);
+/* Default scrollbar hidden */
+#projects ul::-webkit-scrollbar {
+     height: 8px; /* Thin scrollbar */
+     opacity: 0;  /* Hidden initially */
+     transition: opacity 0.3s ease;
+ }
+ 
+ #projects ul:hover::-webkit-scrollbar {
+     opacity: 1;  /* Show on hover */
  }
  
  #projects ul::-webkit-scrollbar-thumb {
-     background: var(--fg-col);
+     background-color: rgba(0, 0, 0, 0.3); /* Semi-transparent thumb */
      border-radius: 10px;
  }
  
  #projects ul::-webkit-scrollbar-track {
-     background: var(--bg-col);
+     background-color: rgba(0, 0, 0, 0.1); /* Subtle background for the track */
+     border-radius: 10px;
  }
  
  /* ========== Footer ========== */

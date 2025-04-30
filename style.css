@@ -1,9 +1,9 @@
 /* ========== Variables ========== */
 :root {
-	--bg-col: hsl(35, 11%, 55%);
-	--bg-col-dark: hsl(37.5, 12.5%, 57.5%);
-	--fg-col: rgb(41, 49, 50);
-	--accent-col: #bff0d4;
+	--bg-col: #B1A595;
+	--bg-col-dark: #A89B8A;
+	--fg-col: #293132;
+	--accent-col: #F9F2F1;
 	--scrollbar-height: 8px;
 }
 

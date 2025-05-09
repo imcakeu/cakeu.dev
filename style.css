@@ -125,17 +125,16 @@ a:active {
     text-align: left;
     font-size: 75%;
     padding-bottom: 1em;
-    overflow-x: scroll; /* Enable horizontal scrolling */
-    display: block; /* Ensure it's block-level */
-    max-width: 100%; /* Or set to a fixed width if needed */
-    position: relative; /* Ensure it can contain absolutely positioned elements */
+    display: block;
+    max-width: 100%;
+    position: relative;
 }
 
 #projects ul {
     display: flex;
     flex-direction: row;
     flex-wrap: nowrap;
-    overflow-x: scroll; /* Enable horizontal scroll */
+    overflow-x: scroll;
     white-space: nowrap;
     padding: 0.25em;
     margin: 0.25em;
@@ -145,8 +144,8 @@ a:active {
 
 .project-links {
     position: absolute;
-    bottom: 10px; /* Optional: Add some spacing from the bottom */
-    left: 10px; /* Optional: Add some spacing from the left */
+    bottom: 10px;
+    left: 10px;
     display: flex;
     gap: 10px;
     padding-left: 7.5px;
@@ -157,7 +156,7 @@ a:active {
 }
 
 #projects ul li {
-    position: relative; /* This enables absolute positioning of project-links within each li */
+    position: relative;
     flex: 0 0 auto;
     text-align: left;
     background-color: var(--bg-col-dark);
@@ -174,14 +173,12 @@ a:active {
 	margin: 0em;
 }
 
-/* Add padding for text/links but not for the image */
 #projects ul li figcaption {
-	padding: 0 1em; /* Add left/right padding for text and links */
+	padding: 0 1em;
 }
 
 #projects ul li h3,
 #projects ul li p {
-	/* Ensure text wraps or is truncated appropriately */
 	overflow: hidden;
 	white-space: nowrap;
 }
@@ -198,7 +195,6 @@ a:active {
 	transition: opacity 0.2s ease-in-out;
 }
 
-/* Ensure the opacity changes when hovering the entire card */
 #projects ul li:hover img {
 	opacity: 1;
 }

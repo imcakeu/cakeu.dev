@@ -77,12 +77,16 @@ ol {
 	padding-left: 1.25em;
 }
 
+a {
+	border-radius: 0.3em;
+}
+
 /* ========== Links ========== */
 a:link,
 a:visited {
 	color: var(--accent-col);
 	text-decoration: none;
-	/* border-bottom: 1px solid var(--accent-col); */
+	background-color: none;
 	transition: color 0.15s, border-color 0.15s;
 }
 
@@ -118,6 +122,12 @@ a:active {
 .inline-list li + li {
 	border-inline-start: 3px solid var(--fg-col);
 	padding-inline-start: 1ch;
+}
+
+/* Bigger click targets for inline list links */
+.inline-list a {
+	display: inline-block;
+	padding: 0.1em 0.2em;
 }
 
 /* ========== Projects Section ========== */
@@ -192,7 +202,6 @@ a:active {
     font-size: 1em;
 }
 
-
 /* Fullscreen overlay */
 #lightbox {
     position: fixed;
@@ -215,7 +224,6 @@ a:active {
     cursor: zoom-out;
 }
 
-
 /* ========== Footer ========== */
 footer {
 	display: grid;
@@ -225,4 +233,125 @@ footer {
 	margin-top: 1em;
 	padding-top: 1em;
 	border-top: 2px solid #444;
+}
+
+/* ========== Mobile Responsive Styles ========== */
+@media (max-width: 768px) {
+    /* Adjust main padding for mobile */
+    main {
+        margin: 1em 0;
+        padding: 1em;
+    }
+
+    /* Header mobile layout */
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 1em;
+    }
+
+    header > div {
+        flex: 1;
+        width: 100%;
+    }
+
+    .logo-container {
+        margin-left: 0;
+        order: -1; /* Move logo above text */
+    }
+
+    .logo {
+        max-width: 120px;
+    }
+
+    /* Adjust typography for mobile */
+    h1 {
+        font-size: 1.8rem;
+    }
+
+    h2 {
+        font-size: 1.3em;
+    }
+
+    /* Mobile inline list adjustments */
+    .inline-list {
+        justify-content: center;
+        gap: 0.5em;
+    }
+
+    .inline-list li {
+        padding: 0 0.5ch;
+    }
+
+    .inline-list li + li {
+        padding-inline-start: 0.5ch;
+    }
+
+    /* Bigger text and click targets for mobile inline list links */
+    .inline-list a {
+        font-size: 1.1em;
+        padding: 0.3em 0.5em;
+    }
+
+    /* Mobile project layout - stack vertically */
+    .project {
+        flex-direction: column;
+        gap: 1em;
+    }
+
+    .project-media {
+        flex: none;
+        width: 100%;
+    }
+
+    .project-details {
+        width: 100%;
+    }
+
+    .project-details ul {
+        padding-left: 1em;
+    }
+
+    .project-details li {
+        font-size: 0.95em;
+        margin-bottom: 0.5em;
+    }
+
+    /* Mobile footer */
+    footer {
+        grid-template-columns: 1fr;
+        gap: 0.5em;
+    }
+}
+
+/* Extra small screens */
+@media (max-width: 480px) {
+    html {
+        font-size: 14pt;
+    }
+
+    h1 {
+        font-size: 1.6rem;
+    }
+
+    .inline-list {
+        flex-direction: column;
+        align-items: center;
+        gap: 0.3em;
+    }
+
+    .inline-list li {
+        padding: 0.2em 0;
+        border: none !important;
+    }
+
+    .inline-list li + li {
+        border-inline-start: none !important;
+        padding-inline-start: 0;
+    }
+
+    .project-details li {
+        font-size: 0.9em;
+    }
 }

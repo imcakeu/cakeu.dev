@@ -3,7 +3,7 @@
 	--bg-col: #B1A595;
 	--bg-col-dark: #A89B8A;
 	--fg-col: #293132;
-	--accent-col: #F9F2F1;
+	--accent-col: #f9f2f1dc;
 	--scrollbar-height: 8px;
 }
 
@@ -51,7 +51,7 @@ header {
 }
 
 .logo {
-	max-width: 110px;
+	max-width: 150px;
 	height: auto;
 }
 
@@ -82,7 +82,7 @@ a:link,
 a:visited {
 	color: var(--accent-col);
 	text-decoration: none;
-	border-bottom: 1px solid var(--accent-col);
+	/* border-bottom: 1px solid var(--accent-col); */
 	transition: color 0.15s, border-color 0.15s;
 }
 
@@ -122,108 +122,99 @@ a:active {
 
 /* ========== Projects Section ========== */
 #projects {
-    text-align: left;
-    font-size: 75%;
-    padding-bottom: 1em;
-    display: block;
-    max-width: 100%;
-    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 2em;
 }
 
-#projects ul {
+/* Single project container */
+.project {
     display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    overflow-x: scroll;
-    white-space: nowrap;
-    padding: 0.25em;
-    margin: 0.25em;
-    list-style: none;
+    gap: 1.5em;
+    background-color: var(--bg-col-dark);
+    padding: 1em;
+    border-radius: 10px;
+    box-shadow: 4px 4px 4px 4px rgba(41, 49, 50, 0.1);
+    align-items: flex-start;
+}
+
+/* Container for stacked media */
+.project-media {
+    flex: 0 0 300px; /* wider than before */
+    display: flex;
+    flex-direction: column;
     gap: 1em;
 }
 
-.project-links {
-    position: absolute;
-    bottom: 10px;
-    left: 10px;
-    display: flex;
-    gap: 10px;
-    padding-left: 7.5px;
-}
-
-#projects h2 {
-	color: #353d3e;
-}
-
-#projects ul li {
-    position: relative;
-    flex: 0 0 auto;
-    text-align: left;
-    background-color: var(--bg-col-dark);
+.media-item {
+    display: inline-block;
     border-radius: 10px;
-    box-shadow: 0 2px 6px rgb(41, 49, 50, 0.2);
-    transition: transform 0.2s ease-in-out, box-shadow 0.4s ease-in-out;
-    display: flex;
-    width: 250px;
-    height: 350px;
     overflow: hidden;
+    cursor: zoom-in; /* cursor on the container */
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    position: relative; /* for lightbox if needed */
 }
 
-#projects figure {
-	margin: 0em;
+.media-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.3);
 }
 
-#projects ul li figcaption {
-	padding: 0 1em;
+.media-item img,
+.media-item iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    user-select: none; /* prevents blue text-selection effect */
 }
 
-#projects ul li h3,
-#projects ul li p {
-	overflow: hidden;
-	white-space: nowrap;
+/* Project details */
+.project-details {
+    flex: 1; /* takes remaining width */
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
 }
 
-#projects ul li:hover {
-	transform: translateY(-5px);
-	box-shadow: 0 4px 12px rgb(41, 49, 50, 0.5);
+.project-details h3 {
+    margin: 0;
+    font-size: 1.5em;
 }
 
-#projects ul li img {
-	max-width: 100%;
-	border-radius: 0px;
-	opacity: 0.5;
-	transition: opacity 0.2s ease-in-out;
+.project-details ul {
+    margin: 0;
+    padding-left: 1.2em;
 }
 
-#projects ul li:hover img {
-	opacity: 1;
+.project-details li {
+    margin-bottom: 0.25em;
+    font-size: 1em;
 }
 
-#projects ul li p {
-	margin: 0;
-	font-size: 0.8em;
+
+/* Fullscreen overlay */
+#lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.8);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
 }
 
-/* Default scrollbar hidden */
-#projects ul::-webkit-scrollbar {
-	height: 8px; /* Thin scrollbar */
-	opacity: 0; /* Hidden initially */
-	transition: opacity 0.2s ease;
+#lightbox img {
+    max-width: 90%;
+    max-height: 90%;
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.5);
+    cursor: zoom-out;
 }
 
-#projects ul:hover::-webkit-scrollbar {
-	opacity: 1; /* Show on hover */
-}
-
-#projects ul::-webkit-scrollbar-thumb {
-	background-color: rgb(41, 49, 50, 0.5);
-	border-radius: 10px;
-}
-
-#projects ul::-webkit-scrollbar-track {
-	background-color: rgb(41, 49, 50, 0.1);
-	border-radius: 10px;
-}
 
 /* ========== Footer ========== */
 footer {

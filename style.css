@@ -68,7 +68,8 @@ h2 {
 }
 
 p {
-	margin: 0.5em 0;
+	margin: 0.6em 0;
+	line-height: 1;
 }
 
 ul,
@@ -78,7 +79,7 @@ ol {
 }
 
 a {
-	border-radius: 0.3em;
+	border-radius: 0.25em;
 }
 
 /* ========== Links ========== */
@@ -127,7 +128,7 @@ a:active {
 /* Bigger click targets for inline list links */
 .inline-list a {
 	display: inline-block;
-	padding: 0.1em 0.2em;
+	padding: 0.2em 0.2em;
 }
 
 /* ========== Projects Section ========== */
